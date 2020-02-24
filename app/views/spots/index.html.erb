@@ -1,4 +1,9 @@
-<h1>Spots in Berlin</h1>
+<div class="banner">
+  <div class="container-index">
+    <h1>Spots in Berlin</h1>
+    <br>
+  </div>
+</div>
 <ul>
   <% @spots.each do |spot| %>
   <li> <%=link_to spot.title, spot_path(spot)%></li>
