@@ -1,6 +1,6 @@
 <h1>Spots in Berlin</h1>
 <ul>
   <% @spots.each do |spot| %>
-  <li> <%=link_to spot.name, spot_path(spot)%></li>
+  <li> <%=link_to spot.title, spot_path(spot)%></li>
   <% end %>
 </ul>
