@@ -11,10 +11,8 @@
       <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
       <div class="card-spot-infos">
         <div>
-          <% if policy(Spot).show? %>
-            <h2><%=link_to spot.title, spot_path(spot)%></h2>
-            <p><%=spot.description%></p>
-          <% end %>
+          <h2><%= link_to spot.title, spot_path(spot) %></h2>
+          <p><%= spot.description %></p>
         </div>
         <h2 class="card-spot-pricing"><%=spot.price%>€</h2>
         <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-spot-user avatar-bordered" />

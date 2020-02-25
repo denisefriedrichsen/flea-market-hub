@@ -6,8 +6,8 @@ class SpotsController < ApplicationController
 
   def show
     @spot = Spot.find(params[:id])
-    @booking = Booking.new
     authorize @spot
+    @booking = Booking.new
   end
 
   def new
@@ -18,6 +18,8 @@ class SpotsController < ApplicationController
   def create
     @spot = Spot.new(spot_params)
     authorize @spot
+    @spot.availability = true
+    @spot.user_id = current_user
     @spot.availability == true
     @spot.user = current_user
     if @spot.save
