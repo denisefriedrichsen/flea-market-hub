@@ -2,7 +2,7 @@ class BookingsController < ApplicationController
   before_action :set_spot, only: [:create]
 
 def index
-  @bookings = Booking.where(user == current_user)
+  @bookings = Booking.where(user: current_user)
 end
 
 # def show
