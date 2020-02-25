@@ -1,10 +1,12 @@
 <ul>
   <li>
-    <%= @spot.title %>
+    <%= @spot.title %><%= link_to spot_path(spot), method: :delete, data: { confirm: "Are you sure?" } do %>
+    <i class="fa fa-trash destroy_spot"></i>
+    <% end %>
     <%= @spot.description %>
     <%= @spot.price %>
 
   </li>
 </ul>
 
-<%= render 'form' %>
+<%= render 'bookings/new', spot: @spot, booking: @booking %>
