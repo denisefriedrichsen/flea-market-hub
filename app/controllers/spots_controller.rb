@@ -18,6 +18,8 @@ class SpotsController < ApplicationController
   def create
     @spot = Spot.new(spot_params)
     # authorize @spot
+    @spot.availability == true
+    @spot.user_id == current_user
     if @spot.save
       redirect_to spot_path(@spot)
     else
@@ -25,10 +27,16 @@ class SpotsController < ApplicationController
     end
   end
 
+  def destroy
+    @spot = Spot.find(params[:id])
+    @spot.destroy
+    redirect_to spots_path
+  end
+
 
   private
 
   def spot_params
-    params.require(:spot).permit(:title)
+    params.require(:spot).permit(:title, :price, :description, :user_id)
   end
 end

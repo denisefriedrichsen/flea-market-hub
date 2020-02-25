@@ -5,9 +5,13 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+Spot.destroy_all
+User.destroy_all
 
 puts "Creating a view spots"
 
-Spot.create(title: "Mauerpark", description: "Flea Market at Mauerpark", price: 14)
+new_user = User.create!(name: "milan", email: "milan@wab.de", password: "123456")
+
+Spot.create!(title: "Mauerpark", description: "Flea Market at Mauerpark", price: 14, user: new_user)
 
 puts "finished"
