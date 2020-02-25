@@ -17,6 +17,9 @@ class SpotsController < ApplicationController
 
   def create
     @spot = Spot.new(spot_params)
+    authorize @spot
+    @spot.availability = true
+    @spot.user_id = current_user
     # authorize @spot
     @spot.availability == true
     @spot.user_id == current_user
