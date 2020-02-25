@@ -1,25 +1,26 @@
 class BookingsController < ApplicationController
+  before_action :set_spot, only: [:create]
 
-def index
-  @bookings = Booking.where(user_id == current_user.id)
-end
+# def index
+#   @bookings = Booking.where(user_id == current_user.id)
+# end
 
-def show
-  @booking = Booking.find(params[:id])
-end
+# def show
+#   @booking = Booking.find(params[:id])
+# end
 
-def new
-  @booking = Booking.new
-end
+# def new
+#   @booking = Booking.new
+# end
 
 def create
   @booking = Booking.new(booking_params)
-  @booking.user_id == current_user
-  @booking.spot_id == set_spot
-  if @booking.save
-    redirect_to bookings_path
+  @booking.spot = @spot
+  @booking.user_id = User.first.id
+  if @booking.save!
+    redirect_to spot_path(@spot)
   else
-    render :new
+    render 'spots/show'
   end
 end
 
@@ -30,12 +31,12 @@ end
 
 private
 
-def booking_params
-  params.require(:booking).permit(:date)
-end
+  def booking_params
+    params.require(:booking).permit(:date)
+  end
 
-def set_spot
-    @spot = Spot.find(params[:id])
+  def set_spot
+      @spot = Spot.find(params[:spot_id])
   end
 
 end
