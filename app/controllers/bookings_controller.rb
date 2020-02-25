@@ -2,26 +2,27 @@ class BookingsController < ApplicationController
   before_action :set_spot, only: [:create]
 
 def index
-  @bookings = Booking.where(user == current_user)
+  @bookings = current_user.bookings
+
 end
 
-# def show
-#   @booking = Booking.find(params[:id])
-# end
+ def show
+   @booking = Booking.find(params[:id])
+ end
 
-# def new
-#   @booking = Booking.new
-# end
+ def new
+   @booking = Booking.new
+ end
 
 def create
   @booking = Booking.new(booking_params)
   authorize @spot
   @booking.spot = @spot
-  @booking.user_id = User.first.id
+  @booking.user = current_user
   @booking.status = "open"
   if @booking.save!
     authorize @spot
-    redirect_to spot_path(@spot)
+    redirect_to bookings_path
   else
     authorize @spot
     render 'spots/show'

@@ -4,5 +4,5 @@ root to: 'pages#home'
 resources :spots, only: [:index, :show, :new, :create, :destroy] do
     resources :bookings, only: [:create]
   end
-resources :bookings, only: [:index]
+resources :bookings, only: [:index, :show, :destroy]
 end
