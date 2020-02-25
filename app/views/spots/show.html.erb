@@ -1,12 +1,17 @@
-<ul>
-  <li>
-    <%= @spot.title %><%= link_to spot_path(@spot), method: :delete, data: { confirm: "Are you sure?" } do %>
+<div class="container-spots-show">
+  <br>
+  <h1><%= @spot.title %></h1>
+  <ul>
+    <li><strong>Description:</strong> <%= @spot.description %></li>
+    <li><strong>Price:</strong> <%= @spot.price %></li>
+    <li><strong>Availability:</strong> <%= @spot.availability %></li>
+    <li><strong>Owner of the spot:</strong> <%= @spot.user.name %></li>
+  </ul>
+
+  <%= link_to spot_path(@spot), method: :delete, data: { confirm: "Are you sure?" } do %>
     <i class="fa fa-trash destroy_spot"></i>
-    <% end %>
-    <%= @spot.description %>
-    <%= @spot.price %>
+  <% end %>
+</div>
 
-  </li>
-</ul>
-
+<h2>Book a spot</h2>
 <%= render 'bookings/new', spot: @spot, booking: @booking %>
