@@ -17,6 +17,7 @@ def create
   @booking = Booking.new(booking_params)
   @booking.spot = @spot
   @booking.user_id = User.first.id
+  @booking.status = "open"
   if @booking.save!
     redirect_to spot_path(@spot)
   else
