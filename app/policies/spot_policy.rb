@@ -21,7 +21,7 @@ class SpotPolicy < ApplicationPolicy
     return true
   end
 
-  def destroy
+  def destroy?
     return true
   end
 

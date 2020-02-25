@@ -21,9 +21,9 @@ class SpotsController < ApplicationController
     @spot.availability = true
     @spot.user_id = current_user
     @spot.availability == true
-    @spot.user_id == current_user
+    @spot.user = current_user
     if @spot.save
-      redirect_to spot_path(@spot)
+      redirect_to @spot
     else
       render 'new'
     end
@@ -40,6 +40,6 @@ class SpotsController < ApplicationController
   private
 
   def spot_params
-    params.require(:spot).permit(:title, :price, :description, :user_id)
+    params.require(:spot).permit(:title, :price, :description)
   end
 end
