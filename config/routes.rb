@@ -5,4 +5,6 @@ resources :spots, only: [:index, :show, :new, :create, :destroy] do
     resources :bookings, only: [:create]
   end
 resources :bookings, only: [:index, :show, :destroy]
+
+resources :users, only: [:index, :show, :edit, :update, :destroy]
 end
