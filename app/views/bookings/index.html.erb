@@ -1,0 +1,7 @@
+<h1>Your bookings</h1>
+<ul>
+<%= @bookings.each do |booking| %>
+<li><%= booking.title %> (<%= booking.date %>)</li>
+<% end %>
+</ul>
+<%= link_to "Show all Spots" spots_path%>
