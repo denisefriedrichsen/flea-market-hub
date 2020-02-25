@@ -26,7 +26,7 @@ class SpotsController < ApplicationController
   def destroy
     @spot = Spot.find(params[:id])
     @spot.destroy
-    redirect_to spot_paths
+    redirect_to spots_path
   end
 
 
