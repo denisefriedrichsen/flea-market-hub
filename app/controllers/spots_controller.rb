@@ -1,8 +1,7 @@
 class SpotsController < ApplicationController
 
   def index
-    @spots = Spot.all
-    authorize @spots
+    @spots = policy_scope(Spot).order(created_at: :desc)
   end
 
   def show
@@ -13,7 +12,7 @@ class SpotsController < ApplicationController
 
   def new
     @spot = Spot.new
-    authorize @spot
+    # authorize @spot
   end
 
   def create
@@ -21,6 +20,9 @@ class SpotsController < ApplicationController
     authorize @spot
     @spot.availability = true
     @spot.user_id = current_user
+    # authorize @spot
+    @spot.availability == true
+    @spot.user_id == current_user
     if @spot.save
       redirect_to spot_path(@spot)
     else
@@ -30,7 +32,7 @@ class SpotsController < ApplicationController
 
   def destroy
     @spot = Spot.find(params[:id])
-    authorize @spot
+    # authorize @spot
     @spot.destroy
     redirect_to spots_path
   end
