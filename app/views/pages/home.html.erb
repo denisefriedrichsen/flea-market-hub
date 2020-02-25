@@ -1,7 +1,9 @@
 <%= render 'shared/banner' %>
 
 <div class="container mt-2">
+  <% if policy(Spot).index? %>
     <%= link_to 'View all spots', spots_path, class: "btn btn-primary"%>
+  <% end %>
 </div>
 
 <div class="container mt-2">
