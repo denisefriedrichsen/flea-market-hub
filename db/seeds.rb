@@ -11,3 +11,5 @@ puts "Creating a view spots"
 Spot.create(title: "Mauerpark", description: "Flea Market at Mauerpark", price: 14)
 
 puts "finished"
+
+User.create (name: "milan", email: "milan@wab.de", password: "123456")
