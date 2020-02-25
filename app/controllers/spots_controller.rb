@@ -2,18 +2,22 @@ class SpotsController < ApplicationController
 
   def index
     @spots = Spot.all
+    authorize @spots
   end
 
   def show
     @spot = Spot.find(params[:id])
+    authorize @spot
   end
 
   def new
     @spot = Spot.new
+    authorize @spot
   end
 
   def create
     @spot = Spot.new(spot_params)
+    authorize @spot
     @spot.availability == true
     @spot.user_id == current_user
     if @spot.save
@@ -25,6 +29,7 @@ class SpotsController < ApplicationController
 
   def destroy
     @spot = Spot.find(params[:id])
+    authorize @spot
     @spot.destroy
     redirect_to spots_path
   end
