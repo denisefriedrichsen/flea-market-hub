@@ -25,6 +25,7 @@ def create
 end
 
 def destroy
+  @booking = Booking.find(params[:id])
   @booking.delete
   redirect_to bookings_path
 end
