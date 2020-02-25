@@ -1,7 +1,7 @@
 <h1>Your bookings</h1>
 <ul>
-<%= @bookings.each do |booking| %>
-<li><%= booking.title %> (<%= booking.date %>)</li>
+<% @bookings.each do |booking| %>
+<li><%= booking.spot.title %> (<%= booking.date %>) <span class="ml-3"> <%= link_to "details", booking_path(booking)%></span></li>
 <% end %>
 </ul>
-<%= link_to "Show all Spots" spots_path%>
+<%= link_to "Show all Spots", spots_path %>
