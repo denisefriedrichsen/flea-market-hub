@@ -18,6 +18,7 @@ def create
   authorize @spot
   @booking.spot = @spot
   @booking.user_id = User.first.id
+  @booking.status = "open"
   if @booking.save!
     authorize @spot
     redirect_to spot_path(@spot)
