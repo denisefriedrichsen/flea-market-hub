@@ -7,6 +7,7 @@ class SpotsController < ApplicationController
 
   def show
     @spot = Spot.find(params[:id])
+    @booking = Booking.new
     authorize @spot
   end
 
