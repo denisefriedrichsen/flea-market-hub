@@ -2,7 +2,7 @@ class BookingsController < ApplicationController
   before_action :set_spot, only: [:create]
 
 def index
-  @bookings = Booking.where(user_id == current_user.id)
+  @bookings = Booking.where(user == current_user)
 end
 
 # def show
@@ -15,11 +15,14 @@ end
 
 def create
   @booking = Booking.new(booking_params)
+  authorize @spot
   @booking.spot = @spot
   @booking.user_id = User.first.id
   if @booking.save!
+    authorize @spot
     redirect_to spot_path(@spot)
   else
+    authorize @spot
     render 'spots/show'
   end
 end
@@ -37,7 +40,8 @@ private
   end
 
   def set_spot
-      @spot = Spot.find(params[:spot_id])
+    @spot = Spot.find(params[:spot_id])
+    authorize @spot
   end
 
 end
