@@ -19,8 +19,8 @@ class SpotsController < ApplicationController
   def create
     @spot = Spot.new(spot_params)
     authorize @spot
-    @spot.availability == true
-    @spot.user_id == current_user
+    @spot.availability = true
+    @spot.user_id = current_user
     if @spot.save
       redirect_to spot_path(@spot)
     else
