@@ -1,9 +1,9 @@
 class BookingsController < ApplicationController
   before_action :set_spot, only: [:create]
 
-# def index
-#   @bookings = Booking.where(user_id == current_user.id)
-# end
+def index
+  @bookings = Booking.where(user_id == current_user.id)
+end
 
 # def show
 #   @booking = Booking.find(params[:id])
