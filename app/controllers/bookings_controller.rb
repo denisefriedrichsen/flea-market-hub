@@ -20,7 +20,6 @@ def create
   authorize @spot
   @booking.spot = @spot
   @booking.user = current_user
-  @booking.status = "open"
   if @booking.save!
     authorize @spot
     redirect_to bookings_path
@@ -32,6 +31,7 @@ end
 
 def destroy
   @booking = Booking.find(params[:id])
+  authorize @spot
   @booking.delete
   redirect_to bookings_path
   authorize @booking

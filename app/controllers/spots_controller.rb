@@ -4,6 +4,12 @@ class SpotsController < ApplicationController
     @spots = policy_scope(Spot).order(created_at: :desc)
   end
 
+  def indexMySpots
+    @spots = policy_scope(Spot).order(created_at: :desc)
+    authorize @spots
+    @my_spots = current_user.spots
+  end
+
   def show
     @spot = Spot.find(params[:id])
     authorize @spot
@@ -40,6 +46,8 @@ class SpotsController < ApplicationController
   private
 
   def spot_params
-    params.require(:spot).permit(:title, :price, :description)
+    params.require(:spot).permit(:title, :price, :description, :body, :photo)
+    # params.require(:spot).permit(:title, :price, :description)
+    # params.require(:spot).permit(:title, :body, :photo)
   end
 end

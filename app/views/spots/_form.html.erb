@@ -1,8 +1,10 @@
+<<<<<<< Updated upstream
 <%= simple_form_for(@spot) do |f| %>
   <div class="form-inputs">
     <%= f.input :title %>
     <%= f.input :description %>
     <%= f.input :price %>
+    <%= f.input :photo, as: :file %>
   </div>
   <br>
   <br>
@@ -16,3 +18,20 @@
   <br>
   <br>
 <% end %>
+=======
+<div class="container">
+  <%= simple_form_for(@spot) do |f| %>
+    <div class="form-inputs">
+      <%= f.input :title %>
+      <%= f.input :description %>
+      <%= f.input :price %>
+      <%= f.input :photo, as: :file %>
+    </div>
+    <br>
+    <div class="form-actions">
+      <%= f.button :submit, class: "btn btn-primary" %>
+    </div>
+    <br>
+  <% end %>
+</div>
+>>>>>>> Stashed changes
