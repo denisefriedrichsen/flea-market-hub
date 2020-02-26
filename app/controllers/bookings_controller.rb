@@ -2,6 +2,7 @@ class BookingsController < ApplicationController
   before_action :set_spot, only: [:create]
 
 def index
+  @spots = policy_scope(Spot).order(created_at: :desc)
   @bookings = current_user.bookings
 end
 
