@@ -1,25 +1,17 @@
 
-<div class="container mt-4">
-  <h1>Your spots</h1>
-  <% @my_spots.each do |spot| %>
-    <div class="card-myspots mt-4">
-      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
-      <div class="card-myspots-infos">
-        <h2><%= link_to spot.title, spot_path(spot) %></h2>
-        <ul><% spot.bookings.each do |booking| %>
-          <li>Status: <%= booking.status%> || User: <%=booking.user.name%></li>
-          <% end %>
-        </ul>
-        <%= link_to "edit", edit_spot_path(spot) %>
-        <%= link_to "delete", edit_spot_path(spot) %>
-      </div>
+<h1>Your spots</h1>
+
+<% @my_spots.each do |spot| %>
+<h2><%= link_to spot.title, spot_path(spot) %></h2>
+  <% spot.bookings.each do |booking| %>
+    <p>Status: <%= booking.status%> || User: <%=booking.user.name%></p>
+    <div class="homepage-buttons mt-2">
+      <%= link_to 'decline booking', decline_path(booking), class: "btn btn-gradient"%>
+      <%= link_to "confirm booking", confirm_path(booking), class: "btn btn-gradient"%>
     </div>
   <% end %>
-</div>
-<br>
-<br>
+  <%= link_to "edit", edit_spot_path(spot) %>
+  <%= link_to "delete", edit_spot_path(spot) %>
+<% end %>
 
- <div class="homepage-buttons mt-2">
-    <%= link_to 'decline booking', decline_path(@booking), class: "btn btn-gradient"%>
-    <%= link_to "confirm booking", confirm_path(@booking), class: "btn btn-gradient"%>
-  </div>
+
