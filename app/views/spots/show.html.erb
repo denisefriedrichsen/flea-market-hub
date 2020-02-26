@@ -1,5 +1,9 @@
-<div class="container-spots-show-banner">
-  <%= cl_image_tag @spot.photo.key %>
+ <div class="container-spots-show-banner">
+  <% if @spot.photo.attached? %>
+      <%= cl_image_tag spot.photo.key %>
+      <% else %>
+      <%= image_tag 'flea-market-2.jpeg'%>
+      <% end %>
 </div>
 
 <div class="container-spots-show">
