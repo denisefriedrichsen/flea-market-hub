@@ -1,10 +1,16 @@
-.container-spots-show-banner {
+.container-spots-show-banner img {
   background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.7));
+  background-size: cover;
+  // background-size: cover;
+  // background-repeat: no-repeat;
+  // background-position: 50% 50%;
+  width: 100%;
   color: white;
   text-align: center;
   font-weight: lighter;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.4);
   height: 300px;
+  width: 100%;
 }
 
 .container-spots-show-banner ul {

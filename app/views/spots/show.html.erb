@@ -1,5 +1,9 @@
-<div class="container-spots-show-banner">
-  <img src="BILD VON MARIAN" alt="image">
+ <div class="container-spots-show-banner">
+  <% if @spot.photo.attached? %>
+      <%= cl_image_tag spot.photo.key %>
+      <% else %>
+      <%= image_tag 'flea-market-2.jpeg'%>
+      <% end %>
 </div>
 
 <div class="container-spots-show">

@@ -7,4 +7,5 @@ class Spot < ApplicationRecord
   validates :price, presence: true
   validates :availability, presence: true, inclusion: { in: [true, false] }
   validates :user_id, presence: true
+  validates :photo, presence: true
 end
