@@ -8,6 +8,7 @@ end
 
  def show
    @booking = Booking.find(params[:id])
+   authorize @booking
  end
 
  def new
@@ -33,6 +34,7 @@ def destroy
   @booking = Booking.find(params[:id])
   @booking.delete
   redirect_to bookings_path
+  authorize @booking
 end
 
 private
