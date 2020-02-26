@@ -31,6 +31,7 @@ end
 
 def destroy
   @booking = Booking.find(params[:id])
+  authorize @spot
   @booking.delete
   redirect_to bookings_path
 end
