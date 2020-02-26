@@ -1,23 +1,27 @@
-<div class="container-spots-show">
-  <br>
-  <h1><%= @spot.title %></h1>
-  <ul>
-    <li><strong>Description:</strong> <%= @spot.description %></li>
-    <li><strong>Price:</strong> <%= @spot.price %></li>
-    <li><strong>Availability:</strong> <%= @spot.availability %></li>
-    <li><strong>Owner of the spot:</strong> <%= @spot.user.name %></li>
-  </ul>
-
-  <%= link_to spot_path(@spot), method: :delete, data: { confirm: "Are you sure?" } do %>
-    <i class="fa fa-trash destroy_spot"></i>
-    <br>
-    <br>
-  <% end %>
+<div class="container-spots-show-banner">
+  <img src="BILD VON MARIAN" alt="image">
 </div>
 
-<div class="form-new-booking">
-  <br>
-  <br>
-  <h2>Book this spot</h2>
-  <%= render 'bookings/new', spot: @spot, booking: @booking %>
+<div class="container-spots-show">
+
+  <div class="container-spots-show-details">
+    <h1><%= @spot.title %></h1>
+      <br>
+      <p><strong>Description:</strong> <%= @spot.description %></p>
+      <p><strong>Price:</strong> <%= @spot.price %></p>
+      <p><strong>Availability:</strong> <%= @spot.availability %></p>
+      <p><strong>Owner of the spot:</strong> <%= @spot.user.name %></p>
+
+    <%= link_to spot_path(@spot), method: :delete, data: { confirm: "Are you sure?" } do %>
+      <i class="fa fa-trash destroy_spot"></i>
+    <% end %>
+  </div>
+
+  <div class="container-spots-show-form">
+    <h1>Book this spot</h1>
+    <div class="container-form">
+      <%= render 'bookings/new', spot: @spot, booking: @booking %>
+    </div>
+  </div>
+
 </div>
