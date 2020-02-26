@@ -10,8 +10,14 @@
 
   <%= link_to spot_path(@spot), method: :delete, data: { confirm: "Are you sure?" } do %>
     <i class="fa fa-trash destroy_spot"></i>
+    <br>
+    <br>
   <% end %>
 </div>
 
-<h2>Book a spot</h2>
-<%= render 'bookings/new', spot: @spot, booking: @booking %>
+<div class="form-new-booking">
+  <br>
+  <br>
+  <h2>Book this spot</h2>
+  <%= render 'bookings/new', spot: @spot, booking: @booking %>
+</div>

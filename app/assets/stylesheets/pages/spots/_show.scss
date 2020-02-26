@@ -1,2 +1,18 @@
 .container-spots-show {
+  background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.7)), url(asset_path("flea-market-2.jpeg"));
+  color: white;
+  text-align: center;
+  font-weight: lighter;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.4);
+}
+
+.container-spots-show ul {
+   list-style-type: none;
+   padding: 0;
+   margin: 0;
+   opacity: .7;
+}
+
+.form-new-booking {
+  text-align: center;
 }

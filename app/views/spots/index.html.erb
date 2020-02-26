@@ -1,13 +1,14 @@
 <div class="banner">
   <div class="container-index">
     <h1>Spots in Berlin</h1>
+    <%= link_to "Create a new spot", new_spot_path, class: "btn btn-gradient"%>
     <br>
   </div>
 </div>
 
-<div class="container mt-4">
+<div class="container mt-4" id="spots">
   <% @spots.each do |spot| %>
-    <div class="card-spot">
+    <div class="card-spot mt-4">
       <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
       <div class="card-spot-infos">
         <div>
@@ -20,3 +21,5 @@
     </div>
   <% end %>
 </div>
+<br>
+<br>
