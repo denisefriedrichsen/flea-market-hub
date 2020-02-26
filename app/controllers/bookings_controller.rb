@@ -11,6 +11,23 @@ end
    authorize @booking
  end
 
+ def decline
+  @booking = Booking.find(params[:id])
+  authorize @booking
+  @booking.status = "declined"
+  @booking.save!
+   redirect_to myspots_path
+
+end
+
+ def confirm
+  @booking = Booking.find(params[:id])
+  authorize @booking
+  @booking.status = "confirmed"
+  @booking.save!
+   redirect_to myspots_path
+ end
+
  def new
    @booking = Booking.new
  end
