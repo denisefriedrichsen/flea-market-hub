@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 2020_02_24_160637) do
   create_table "bookings", force: :cascade do |t|
     t.bigint "spot_id"
     t.bigint "user_id"
-    t.string "status"
+    t.string "status", default: "open"
     t.date "date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
