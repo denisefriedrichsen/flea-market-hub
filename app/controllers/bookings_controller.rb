@@ -48,10 +48,10 @@ end
 
 def destroy
   @booking = Booking.find(params[:id])
-  authorize @spot
+  #authorize @spot
+  authorize @booking
   @booking.delete
   redirect_to bookings_path
-  authorize @booking
 end
 
 private
