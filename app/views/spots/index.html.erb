@@ -1,20 +1,17 @@
 <div class="banner">
   <div class="container-index">
-    <h1>Spots in Berlin</h1>
+    <h1>All Spots</h1>
+    <br>
+    <%= link_to "Create a new spot", new_spot_path, class: "btn btn-gradient"%>
     <br>
   </div>
 </div>
 
-<div class="container mt-4">
+<div class="container mt-4" id="spots">
   <% @spots.each do |spot| %>
-<<<<<<< Updated upstream
-    <div class="card-spot">
-      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
-=======
     <div class="card-spot mt-4">
       <%= cl_image_tag spot.photo.key, crop: :fill %>
       <!-- <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" /> -->
->>>>>>> Stashed changes
       <div class="card-spot-infos">
         <div>
           <h2><%= link_to spot.title, spot_path(spot) %></h2>
@@ -26,3 +23,5 @@
     </div>
   <% end %>
 </div>
+<br>
+<br>

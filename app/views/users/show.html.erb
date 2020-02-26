@@ -1,0 +1,7 @@
+<h1>Hi <%=@user.name %> </h1>
+<p>name: <%= @user.name %></p>
+<p>email: <%= @user.email %></p>
+<p></p>
+<p>password: <%= @user.password%></p>
+<%= link_to "edit profile", edit_user_path %>
+<%= link_to "delete profile", user_path(@user) %>
