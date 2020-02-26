@@ -5,7 +5,7 @@ class SpotPolicy < ApplicationPolicy
     end
   end
 
-  def indexMySpots
+  def indexMySpots?
     return true
   end
 
