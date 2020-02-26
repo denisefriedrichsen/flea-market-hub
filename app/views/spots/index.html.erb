@@ -10,7 +10,8 @@
 <div class="container mt-4" id="spots">
   <% @spots.each do |spot| %>
     <div class="card-spot mt-4">
-      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+      <%= cl_image_tag spot.photo.key, crop: :fill %>
+      <!-- <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" /> -->
       <div class="card-spot-infos">
         <div>
           <h2><%= link_to spot.title, spot_path(spot) %></h2>
