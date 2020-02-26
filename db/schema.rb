@@ -30,11 +30,11 @@ ActiveRecord::Schema.define(version: 2020_02_26_105911) do
     t.string "title"
     t.text "description"
     t.integer "price"
-    t.boolean "availability"
+    t.boolean "availability", default: true
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "status"
+    t.string "status", default: "available"
     t.index ["user_id"], name: "index_spots_on_user_id"
   end
 

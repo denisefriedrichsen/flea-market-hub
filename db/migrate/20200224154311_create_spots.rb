@@ -4,7 +4,7 @@ class CreateSpots < ActiveRecord::Migration[5.2]
       t.string :title
       t.text :description
       t.integer :price
-      t.boolean :availability
+      t.boolean :availability, default: true
       t.references :user, foreign_key: true
 
       t.timestamps
