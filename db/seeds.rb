@@ -10,8 +10,11 @@ User.destroy_all
 
 puts "Creating a view spots"
 
-new_user = User.create!(name: "milan", email: "milan@wab.de", password: "123456")
+# new_user = User.create!(name: "Caro", email: "caro@web.de", password: "123456")
 
-Spot.create!(title: "Mauerpark", description: "Flea Market at Mauerpark", price: 14, user: new_user)
+# Spot.create!(title: "Mauerpark", description: "Flea Market at Mauerpark", price: 14, user: new_user)
+# Spot.create!(title: "Mauerpark", description: "Flea Market at Mauerpark", price: 14, user: new_user)
+# Spot.create!(title: "Mauerpark", description: "Flea Market at Mauerpark", price: 14, user: new_user)
+# Spot.create!(title: "Mauerpark", description: "Flea Market at Mauerpark", price: 14, user: new_user)
 
 puts "finished"
