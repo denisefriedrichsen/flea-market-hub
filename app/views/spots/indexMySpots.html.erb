@@ -8,39 +8,46 @@
 </div>
 
 <div class="container mt-2">
-  <% @my_spots.each do |spot| %>
-    <div class="card" style="width: 18rem;">
-      <% if spot.photo.attached? %>
-      <%= cl_image_tag spot.photo.key, class: 'img-thumbnail' %>
-      <% else %>
-      <%= image_tag 'flea-market-2.jpeg'%>
-      <% end %>
-      <div class="card-body">
-        <h5 class="card-title"><%= spot.title %></h5>
-        <p> See all your bookings for <%= spot.title %></p>
-      </div>
-      <ul class="list-group list-group-flush">
-        <li class="list-group-item">Bookings</li>
-        <% spot.bookings.each do |booking| %>
-          <li class="list-group-item">
-            Status: <%= booking.status%> <br>
-            User: <%=booking.user.name%> <br>
-            <% if booking.status == "open" %>
-              <%= link_to "confirm booking", confirm_path(booking) %> <br>
-              <%= link_to 'decline booking', decline_path(booking) %> <br>
-            <% elsif booking.status == "declined" %>
-              <%= "You declined the booking." %>
-            <% elsif booking.status == "confirmed" %>
-              <%= "You confirmed the booking." %>
-            <% end %>
-          </li>
+  <div class="card-group">
+    <% @my_spots.each do |spot| %>
+      <div class="card" style="width: 18rem;">
+        <% if spot.photo.attached? %>
+        <%= cl_image_tag spot.photo.key, class: 'card-img-top' %>
+        <% else %>
+        <%= image_tag 'flea-market-2.jpeg'%>
         <% end %>
-      </ul>
-      <div class="card-body">
-        <p> Edit or delete your spot</p>
-        <%= link_to "edit", edit_spot_path(spot), class: 'card-link'%>
-        <%= link_to "delete", edit_spot_path(spot), class: 'card-link'%>
+        <div class="card-body">
+          <h5 class="card-title"><%= spot.title %></h5>
+          <p><%= spot.description %></p>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">Bookings</li>
+          <% if spot.bookings.last == nil %>
+            <li class="list-group-item"> <%= "Currently no bookings" %> </li>
+          <% else %>
+            <% spot.bookings.each do |booking| %>
+              <li class="list-group-item">
+                Booking for: <%= booking.date %> <br>
+                Status: <%= booking.status%> <br>
+                User: <%=booking.user.name%> <br>
+                <% if booking.status == "open" %>
+                  <%= link_to "confirm booking", confirm_path(booking) %> <br>
+                  <%= link_to 'decline booking', decline_path(booking) %> <br>
+                <% elsif booking.status == "declined" %>
+                  <%= "You declined the booking." %>
+                <% elsif booking.status == "confirmed" %>
+                  <%= "You confirmed the booking." %>
+                <% end %>
+              </li>
+            <% end %>
+          <% end %>
+        </ul>
+        <div class="card-body">
+          <p> Edit or delete your spot</p>
+          <%= link_to "edit", edit_spot_path(spot), class: 'card-link'%>
+          <%= link_to "delete", edit_spot_path(spot), class: 'card-link'%>
+        </div>
       </div>
-    </div>
-  <% end %>
+    <% end %>
+  </div>
 </div>
