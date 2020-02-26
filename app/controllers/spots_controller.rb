@@ -8,6 +8,7 @@ class SpotsController < ApplicationController
     @spots = policy_scope(Spot).order(created_at: :desc)
     authorize @spots
     @my_spots = current_user.spots
+    raise
   end
 
   def show
