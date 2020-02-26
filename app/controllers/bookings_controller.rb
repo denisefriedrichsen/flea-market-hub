@@ -8,6 +8,7 @@ end
 
  def show
    @booking = Booking.find(params[:id])
+   authorize @booking
  end
 
  def new
@@ -19,7 +20,6 @@ def create
   authorize @spot
   @booking.spot = @spot
   @booking.user = current_user
-  @booking.status = "open"
   if @booking.save!
     authorize @spot
     redirect_to bookings_path
@@ -34,6 +34,7 @@ def destroy
   authorize @spot
   @booking.delete
   redirect_to bookings_path
+  authorize @booking
 end
 
 private
