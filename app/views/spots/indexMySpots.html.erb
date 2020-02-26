@@ -1,18 +1,17 @@
-<h1>Your spots</h1>
-<div class="container mt-4" id="spots">
+
+<div class="container mt-4">
+  <h1>Your spots</h1>
   <% @my_spots.each do |spot| %>
-    <div class="card-spot mt-4">
+    <div class="card-myspots mt-4">
       <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
-      <div class="card-spot-infos">
-        <div>
-          <h2><%= link_to spot.title, spot_path(spot) %></h2>
-          <ul><% spot.bookings.each do |booking| %>
-            <li><%= booking.status%> <%=booking.user.name%></li>
-            <% end %>
-          </ul>
-        </div>
-        <h2 class="card-spot-pricing"><%=spot.price%>€</h2>
-        <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-spot-user avatar-bordered" />
+      <div class="card-myspots-infos">
+        <h2><%= link_to spot.title, spot_path(spot) %></h2>
+        <ul><% spot.bookings.each do |booking| %>
+          <li>Status: <%= booking.status%> || User: <%=booking.user.name%></li>
+          <% end %>
+        </ul>
+        <%= link_to "edit", edit_spot_path(spot) %>
+        <%= link_to "delete", edit_spot_path(spot) %>
       </div>
     </div>
   <% end %>

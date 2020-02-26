@@ -35,6 +35,12 @@ class SpotsController < ApplicationController
     end
   end
 
+  def edit
+  end
+
+  def update
+  end
+
   def destroy
     @spot = Spot.find(params[:id])
     authorize @spot
