@@ -29,4 +29,12 @@ class SpotPolicy < ApplicationPolicy
     return true
   end
 
+  def decline?
+    return true
+  end
+
+  def confirm?
+    return true
+  end
+
 end
