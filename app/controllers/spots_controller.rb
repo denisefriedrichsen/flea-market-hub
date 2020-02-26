@@ -5,14 +5,14 @@ class SpotsController < ApplicationController
   end
 
   def indexMySpots
-    @spots = policy_scope(Spot).order(created_at: :desc)
-    @my_spots = current_user.spots
+    @spots = current_user.spots
   end
 
   def show
     @spot = Spot.find(params[:id])
     authorize @spot
     @booking = Booking.new
+    raise
   end
 
   def new
