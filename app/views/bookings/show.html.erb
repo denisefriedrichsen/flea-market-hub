@@ -1,6 +1,7 @@
 <h1><%= @booking.spot.title %><%= link_to booking_path(@booking), method: :delete, data: { confirm: "Are you sure?" } do %>
     <i class="fa fa-trash destroy_booking"></i>
-    <% end %></h1>
+    <% end %>
+</h1>
 <span class="badge badge-primary"><%= @booking.status %></span>
 <ul>
 <li>Date: <%= @booking.date %></li>
@@ -8,6 +9,8 @@
 <li>Price: <%= @booking.spot.price %></li>
 </ul>
 <%= link_to "Show all Spots", spots_path %>
+
+
 
 
 <!-- <span class="badge badge-success">Success</span> -->
