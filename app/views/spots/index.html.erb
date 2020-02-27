@@ -1,11 +1,4 @@
-<div class="banner">
-  <div class="container-index">
-    <h1>All Spots</h1>
-    <br>
-    <%= link_to "Create a new spot", new_spot_path, class: "btn btn-gradient"%>
-    <br>
-  </div>
-</div>
+
 
 <!-- <div
   id="map"
@@ -15,15 +8,31 @@
   data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
 ></div> -->
 
-<div class="container mt-4" id="spots">
-  <% @spots.each do |spot| %>
-    <div class="card-spot mt-4">
+<div>
+<!-- search form input  -->
+  <div>
+    <%= simple_form_for :search, url: root_path, method: :get do |f| %>
+        <div class="search-form-control form-group">
+          <input class="form-control string required" type="text" name="search[query]" id="search_query" />
+          <button name="button" type="submit" class="btn btn-flat">
+          <i class="fas fa-search"></i> Search city
+          </button>
+        </div>
+      <% end %>
+  </div>
+<div class='container'>
+<!-- main results container -->
+<div>
+<div class='row justify-content-between'>
+<!-- width 66%  -->
+<div class='row col-8'>
+ <% @spots.each do |spot| %>
+  <div class="card-spot col-5 mx-2 my-2">
       <% if spot.photo.attached? %>
       <%= cl_image_tag spot.photo.key, crop: :fill %>
       <% else %>
       <%= image_tag 'flea-market-2.jpeg'%>
       <% end %>
-      <!-- <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" /> -->
       <div class="card-spot-infos">
         <div>
           <h2><%= link_to spot.title, spot_path(spot) %></h2>
@@ -33,7 +42,26 @@
         <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-spot-user avatar-bordered" />
       </div>
     </div>
-  <% end %>
+ <% end %>
 </div>
-<br>
-<br>
+
+<!-- width 33% -->
+  <div class='map-index col-4'>
+
+  </div>
+
+</div>
+
+
+
+</div>
+
+
+</div>
+
+</div>
+
+
+
+
+
