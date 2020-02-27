@@ -39,7 +39,7 @@ ActiveRecord::Schema.define(version: 2020_02_27_105202) do
   create_table "bookings", force: :cascade do |t|
     t.bigint "spot_id"
     t.bigint "user_id"
-    t.string "status"
+    t.string "status", default: "open"
     t.date "date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -51,7 +51,7 @@ ActiveRecord::Schema.define(version: 2020_02_27_105202) do
     t.string "title"
     t.text "description"
     t.integer "price"
-    t.boolean "availability"
+    t.boolean "availability", default: true
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -64,7 +64,7 @@ ActiveRecord::Schema.define(version: 2020_02_27_105202) do
 
   create_table "users", force: :cascade do |t|
     t.string "name"
-    t.string "role"
+    t.boolean "admin", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "email", default: "", null: false
