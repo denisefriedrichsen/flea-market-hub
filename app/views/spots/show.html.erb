@@ -14,6 +14,7 @@
       <p><strong>Description:</strong> <%= @spot.description %></p>
       <p><strong>Price:</strong> <%= @spot.price %></p>
       <p><strong>Availability:</strong> <%= @spot.availability %></p>
+      <p><strong>Address:</strong> <%= @spot.address %></p>
       <p><strong>Owner of the spot:</strong> <%= @spot.user.name %></p>
 
     <%= link_to spot_path(@spot), method: :delete, data: { confirm: "Are you sure?" } do %>
