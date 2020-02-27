@@ -1,13 +1,14 @@
-<div class="container">
+<div class="container-form-spot">
   <%= simple_form_for(@spot) do |f| %>
-    <div class="form-inputs">
+    <div class="form-inputs new-spot-input">
       <%= f.input :title %>
       <%= f.input :description %>
+      <%= f.input :address %>
       <%= f.input :price %>
       <%= f.input :photo, as: :file %>
     </div>
     <br>
-    <div class="form-actions">
+    <div class="form-actions new-spot-button">
       <%= f.button :submit, class: "btn btn-primary" %>
     </div>
     <br>

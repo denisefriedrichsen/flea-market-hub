@@ -1,9 +1,9 @@
  <div class="container-spots-show-banner">
   <% if @spot.photo.attached? %>
-      <%= cl_image_tag @spot.photo.key %>
-      <% else %>
-      <%= image_tag 'flea-market-2.jpeg'%>
-      <% end %>
+    <%= cl_image_tag @spot.photo.key %>
+  <% else %>
+    <%= image_tag 'flea-market-2.jpeg'%>
+  <% end %>
 </div>
 
 <div class="container-spots-show">
@@ -24,9 +24,7 @@
 
   <div class="container-spots-show-form">
     <h1>Book this spot</h1>
-    <div class="container-form">
       <%= render 'bookings/new', spot: @spot, booking: @booking %>
-    </div>
   </div>
 
 </div>

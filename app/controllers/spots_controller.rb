@@ -1,6 +1,10 @@
 class SpotsController < ApplicationController
-
   # skip_after_action :verify_policy_scope, only: :index, unless: :skip_pundit?
+  before_action :find_user
+
+  def find_user
+    @user = current_user
+  end
 
   def index
     @spots = policy_scope(Spot).order(created_at: :desc)
@@ -62,7 +66,7 @@ class SpotsController < ApplicationController
   private
 
   def spot_params
-    params.require(:spot).permit(:title, :price, :description, :body, :photo)
+    params.require(:spot).permit(:title, :price, :description, :body, :photo, :address)
     # params.require(:spot).permit(:title, :price, :description)
     # params.require(:spot).permit(:title, :body, :photo)
   end
