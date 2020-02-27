@@ -19,3 +19,12 @@
 @import "components/footer";
 @import "components/navbar";
 
+a {
+  color: $pink;
+  text-decoration: none;
+}
+
+a:hover {
+  color: $purple;
+  text-decoration: none;
+}
