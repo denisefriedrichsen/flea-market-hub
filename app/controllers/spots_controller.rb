@@ -16,9 +16,8 @@ class SpotsController < ApplicationController
   end
 
   def indexMySpots
-    @spots = policy_scope(Spot).order(created_at: :desc)
-    authorize @spots
     @my_spots = current_user.spots
+    authorize @my_spots.first
   end
 
   def show

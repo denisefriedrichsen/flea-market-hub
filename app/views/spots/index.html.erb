@@ -8,19 +8,20 @@
   data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
 ></div>
 
-
-<% if spot.photo.attached? %>
-  <%= cl_image_tag spot.photo.key, crop: :fill %>
-<% else %>
-  <%= image_tag 'flea-market-2.jpeg'%>
+<% @spots.each do |spot| %>
+      <% if spot.photo.attached? %>
+      <%= cl_image_tag spot.photo.key, crop: :fill %>
+      <% else %>
+      <%= image_tag 'flea-market-2.jpeg'%>
+      <% end %>
+      <div class="card-spot-infos">
+        <div>
+          <h2><%= link_to spot.title, spot_path(spot) %></h2>
+          <p><%= spot.description %></p>
+        </div>
+        <h2 class="card-spot-pricing"><%=spot.price%>€</h2>
+        <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-spot-user avatar-bordered" />
+      </div>
+    </div>
 <% end %>
-
-<div class="card-spot-infos">
-  <div>
-    <h2><%= link_to spot.title, spot_path(spot) %></h2>
-    <p><%= spot.description %></p>
-  </div>
-  <h2 class="card-spot-pricing"><%=spot.price%>€</h2>
-  <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-spot-user avatar-bordered" />
-</div>
 
