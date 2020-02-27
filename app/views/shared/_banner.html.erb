@@ -5,20 +5,23 @@
     <p>Find all available flea market spots in your city and book it fast and easy.</p>
     <br>
     <div class="container mt-2">
-      <div>
-        <%= form_tag root_path, method: :get do %>
-        <%= text_field_tag :query,
-        params[:query],
-        class: "form-control",
-        placeholder: "Find a spot"
-        %>
-        <%= submit_tag "Search", class: "btn btn-primary" %>
+      <div class="search-form">
+        <div class="input"><%= form_tag root_path, method: :get do %>
+          <%= text_field_tag :query,
+          params[:query],
+          class: "form-control",
+          placeholder: "Find a spot"
+          %>
+        </div>
+        <div>
+          <%= submit_tag "Search", class: "btn btn-gradient" %>
+        </div>
         <% end %>
       </div>
     </div>
     <div class="homepage-buttons mt-2">
-      <%= link_to 'View all spots', spots_path, class: "btn btn-gradient"%>
-      <%= link_to "Create a new spot", new_spot_path, class: "btn btn-gradient"%>
+      <%= link_to 'View all spots', spots_path, class: "btn btn-primary"%>
+      <%= link_to "Create a new spot", new_spot_path, class: "btn btn-primary"%>
     </div>
   </div>
 </div>
