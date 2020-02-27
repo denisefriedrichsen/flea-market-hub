@@ -1,5 +1,7 @@
 class SpotsController < ApplicationController
 
+  # skip_after_action :verify_policy_scope, only: :index, unless: :skip_pundit?
+
   def index
     @spots = policy_scope(Spot).order(created_at: :desc)
     @spots = Spot.geocoded
@@ -7,7 +9,7 @@ class SpotsController < ApplicationController
       {
         lat: spot.latitude,
         lng: spot.longitude,
-        infoWindow: render_to_string(partial: "info_window", locals: { spot: spot })
+        infoWindow: render_to_string(partial: "info_window", locals: { spot: spot }),
         image_url: helpers.asset_url('flea-market-2.jpeg')
       }
     end
