@@ -1,10 +1,27 @@
-<h1>Your bookings</h1>
-<ul>
-<% @bookings.each do |booking| %>
-<li><%= booking.spot.title %> (<%= booking.date %>) <span class="ml-3"> <%= link_to "details", booking_path(booking)%> </span><span class="badge badge-primary"><%= booking.status %></span>
-</li>
-<% end %>
-</ul>
-<%= link_to "Show all Spots", spots_path %>
+<div class="container">
+  <div class="text-center">
+    <h1>Your bookings</h1>
+  </div>
+  <div class="d-flex justify-content-between flex-wrap">
+    <% @bookings.each do |booking| %>
+      <div class="card">
+        <div class="card-header">
+          <span class="badge badge-primary"><%= booking.status %></span>
+        </div>
+        <div class="card-body">
+          <h5 class="card-title"><%= booking.spot.title %></h5>
+          <p class="card-text">Booking Date: <%= booking.date %></p>
+          <a> <%= link_to "details", booking_path(booking)%></a>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <div class="text-center">
+    <%= link_to "Show all Spots", spots_path, class: "btn btn-pink" %>
+  </div>
+</div>
+
+
+
 
 
