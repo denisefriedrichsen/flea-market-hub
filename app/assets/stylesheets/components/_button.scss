@@ -1,3 +1,40 @@
+.btn-pink {
+  color: white;
+  font-weight: bolder;
+  padding: 8px 24px;
+  border-radius: 4px;
+  background: $pink;
+  transition: background 0.3s ease;
+  text-decoration: none;
+}
+
+.btn-pink:hover {
+  background: $purple;
+  color: white;
+  text-decoration: none;
+}
+
+.btn-purple {
+  color: white;
+  font-weight: bolder;
+  padding: 8px 24px;
+  border-radius: 4px;
+  background: $purple;
+  transition: background 0.3s ease;
+  text-decoration: none;
+}
+
+.btn-purple:hover {
+  color: white;
+  font-weight: bolder;
+  padding: 8px 24px;
+  border-radius: 4px;
+  background: $pink;
+  transition: background 0.3s ease;
+  text-decoration: none;
+}
+
+
 .btn-flat {
   color: white;
   padding: 8px 24px;
@@ -9,34 +46,4 @@
 .btn-flat:hover {
   background: #1BCB7F;
   color: white;
-}
-
-.btn-gradient {
-  color: white;
-  padding: 8px 24px;
-  border-radius: 4px;
-  background: linear-gradient(#4A4A4A, #4A4A4B);
-  transition: background 0.3s ease;
-  border: 1px solid #4A4A4A;
-  opacity: 0.5;
-}
-
-.btn-gradient:hover {
-  background: linear-gradient(#4A4A4A, #4A4A4A);
-  color: white;
-  opacity: 1;
-}
-
-.btn-ghost {
-  color: #4A4A4A;
-  border: 1px solid #4A4A4A;
-  padding: 8px 24px;
-  border-radius: 50px;
-  font-weight: lighter;
-  opacity: 0.6;
-  transition: opacity 0.3s ease;
-}
-
-.btn-ghost:hover {
-  opacity: 1;
 }
