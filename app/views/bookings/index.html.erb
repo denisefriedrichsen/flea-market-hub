@@ -1,17 +1,23 @@
 <div class="container">
-  <div class="text-center">
+  <div class="text-center mt-4">
     <h1>Your bookings</h1>
   </div>
   <div class="d-flex justify-content-between flex-wrap">
     <% @bookings.each do |booking| %>
-      <div class="card">
+      <div class="card mt-4">
         <div class="card-header">
-          <span class="badge badge-primary"><%= booking.status %></span>
+          <% if booking.status == "open" %>
+            <span class="badge badge-primary"><%= booking.status %></span>
+          <% elsif booking.status == "confirmed" %>
+            <span class="badge badge-success"><%= booking.status %></span>
+          <% elsif booking.status == "declined" %>
+            <span class="badge badge-danger"><%= booking.status %></span>
+          <% end %>
         </div>
         <div class="card-body">
           <h5 class="card-title"><%= booking.spot.title %></h5>
           <p class="card-text">Booking Date: <%= booking.date %></p>
-          <a> <%= link_to "details", booking_path(booking)%></a>
+          <a> <%= link_to "Details", booking_path(booking)%></a>
         </div>
       </div>
     <% end %>
