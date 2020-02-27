@@ -2,6 +2,13 @@ class SpotsController < ApplicationController
 
   def index
     @spots = policy_scope(Spot).order(created_at: :desc)
+    # @spots = Spot.geocoded
+    # @markers = @spots.map do |spot|
+    #   {
+    #     lat: spot.latitude,
+    #     lng: spot.longitude
+    #   }
+    # end
   end
 
   def indexMySpots
