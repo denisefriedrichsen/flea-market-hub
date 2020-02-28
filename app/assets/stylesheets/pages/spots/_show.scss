@@ -1,46 +1,65 @@
-.container-spots-show-banner img {
+.container-spots-show-image img {
   background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.7));
   background-size: cover;
   // background-repeat: no-repeat;
   // background-position: 50% 50%;
-  width: 100%;
   color: white;
   text-align: center;
   font-weight: lighter;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.4);
   height: 300px;
-  width: 100%;
+  width: 30%;
 }
 
-.container-spots-show-banner ul {
+.container-spots-show {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.container-spots-show-image ul {
    list-style-type: none;
    padding: 0;
    margin: 0;
    opacity: .7;
 }
-
-.container-spots-show-form {
-  text-align: center;
-}
-
-.container-spots-show {
-  display: flex;
-  justify-content: space-around;
-}
-
-.container-spots-show-details, .container-spots-show-form  {
+.container-spots-show-details {
   background-color: white;
   border-radius: 5px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  height: 350px;
-  width: 450px;
-  margin-top: 40px;
-  margin-bottom: 80px;
+  height: 300px;
+  width: 100%;
   text-align: center;
+  margin-top: 20px;
+}
+
+.container-spots-show-image img {
+  height: 100%;
+  width: 100%;
+}
+
+.container-spots-show-image {
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  height: 300px;
+  width: 50%;
+  text-align: center;
+  margin-right: 10px;
+}
+
+.container-spots-show-form  {
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  height: 300px;
+  width: 50%;
+  text-align: center;
+  margin-left: 10px;
 }
 
 .container-spots-show-details h1 {
-  margin-top: 20px;
+  padding-top: 20px;
 }
 .container-spots-show-form h1 {
   margin-top: 20px;
@@ -55,10 +74,5 @@
 .new-booking-button {
   display: flex;
   justify-item: center;
-}
-
-.container-form {
-  display: flex;
-  justify-content: space-around;
 }
 
