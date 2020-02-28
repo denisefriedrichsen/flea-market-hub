@@ -16,7 +16,7 @@
               <% if spot.photo.attached? %>
                 <%= cl_image_tag spot.photo.key, class: 'card-spot-img' %>
               <% else %>
-                <%= image_path("flea-market-2.jpeg"), class: 'card-spot-img'%>
+                <%= image_tag image_path("flea-market-2.jpeg"), class: 'card-spot-img'%>
               <% end %>
               <div class="ml-4">
                 <h5 class="card-title"><%= spot.title %></h5>
