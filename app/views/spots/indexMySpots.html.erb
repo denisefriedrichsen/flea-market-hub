@@ -14,7 +14,7 @@
           <div class="card-body">
             <div class="d-flex">
               <% if spot.photo.attached? %>
-                <%= cl_image_tag spot.photo.key, width:250, height:150, class: 'card-img-top' %>
+                <%= cl_image_tag spot.photo.key, class: 'card-spot-img' %>
               <% else %>
                 <%= image_tag "flea-market-6.jpeg", class: 'card-spot-img'%>
               <% end %>

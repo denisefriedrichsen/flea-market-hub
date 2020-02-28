@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
-devise_for :users
+devise_for :users, controllers: { registrations: 'registrations' }
 root to: 'pages#home'
+get '/profile', to: 'users#show', as: :profile
 get '/spots-my-spots', to: 'spots#indexMySpots', as: 'myspots'
 get'/bookings/:id/decline', to: 'bookings#decline', as: 'decline'
 get'/bookings/:id/confirm', to: 'bookings#confirm', as: 'confirm'
