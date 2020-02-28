@@ -1,53 +1,52 @@
-<div class="banner">
-  <div class="container-index">
-    <h1>All Spots</h1>
-    <br>
-    <%= link_to "Create a new spot", new_spot_path, class: "btn btn-gradient"%>
-    <br>
+<div class="container mt-4">
+  <div class="search-form">
+    <div class="input"><%= form_tag spots_path, method: :get do %>
+      <%= text_field_tag :query,
+      params[:query],
+      class: "form-control",
+      placeholder: "Find a spot"
+      %>
+    </div>
+    <div>
+      <%= submit_tag "Search", class: "btn btn-pink" %>
+    </div>
+    <% end %>
   </div>
-</div>
 
-  <div class="container mt-2 d-flex">
-      <div>
-        <%= form_tag spots_path, method: :get do %>
-        <%= text_field_tag :query,
-        params[:query],
-        class: "form-control",
-        placeholder: "Find a spot"
-        %>
-      </div>
-      <div>
-        <%= submit_tag "Search", class: "btn btn-primary" %>
+  <div class="spot-index-buttons mt-2">
+    <%= link_to 'View all spots', spots_path, class: "btn btn-purple"%>
+    <%= link_to "Create a new spot", new_spot_path, class: "btn btn-purple"%>
+  </div>
+
+<div class="d-flex">
+  <div class="f-flex flex-wrap">
+    <% @spots.each do |spot| %>
+      <div class="card-spot mt-4">
+        <% if spot.photo.attached? %>
+        <%= cl_image_tag spot.photo.key, crop: :fill %>
+        <% else %>
+        <%= image_tag "#{spot.title}.png"%>
         <% end %>
-      </div>
-    </div>
-
-<div class="container" id="spots">
-  <% @spots.each do |spot| %>
-    <div class="card-spot mt-4">
-      <% if spot.photo.attached? %>
-      <%= cl_image_tag spot.photo.key, crop: :fill %>
-      <% else %>
-      <%= image_tag "#{spot.title}.png"%>
-      <% end %>
-      <!-- <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" /> -->
-      <div class="card-spot-infos">
-        <div>
-          <h2><%= link_to spot.title, spot_path(spot) %></h2>
-          <p><%= spot.description %></p>
+        <!-- <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" /> -->
+        <div class="card-spot-infos">
+          <div>
+            <h2><%= link_to spot.title, spot_path(spot) %></h2>
+            <p><%= spot.description %></p>
+          </div>
+          <h2 class="card-spot-pricing"><%=spot.price%>€</h2>
+          <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-spot-user avatar-bordered" />
         </div>
-        <h2 class="card-spot-pricing"><%=spot.price%>€</h2>
-        <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-spot-user avatar-bordered" />
       </div>
-    </div>
-  <% end %>
-</div>
+    <% end %>
+  </div>
 
-<div
-  class="container mt-4"
-  id="map";
-  style="width: 100%;
-  height: 600px;"
-  data-markers="<%= @markers.to_json %>"
-  data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
-></div>
+  <div
+    class="container mt-4"
+    id="map";
+    style="width: 100%;
+    height: 600px;"
+    data-markers="<%= @markers.to_json %>"
+    data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+  ></div>
+</div>
+</div>

@@ -28,7 +28,7 @@ class SpotsController < ApplicationController
 
   def indexMySpots
     @my_spots = current_user.spots
-    authorize @my_spots.first
+    authorize @my_spots
   end
 
   def show
@@ -57,10 +57,13 @@ class SpotsController < ApplicationController
   end
 
   def edit
-    # authorize @spot
+    @spot = Spot.find(params[:id])
+    authorize @spot
   end
 
   def update
+    @spot = Spot.find(params[:id])
+    authorize @spot
   end
 
   def destroy

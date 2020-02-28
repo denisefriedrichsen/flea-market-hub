@@ -1,12 +1,5 @@
- <div class="container-spots-show-banner">
-  <% if @spot.photo.attached? %>
-    <%= cl_image_tag @spot.photo.key %>
-  <% else %>
-    <%= image_tag 'flea-market-2.jpeg'%>
-  <% end %>
-</div>
 
-<div class="container-spots-show">
+<div class="container">
 
   <div class="container-spots-show-details">
     <h1><%= @spot.title %></h1>
@@ -18,11 +11,25 @@
 
     <%= link_to spot_path(@spot), method: :delete, data: { confirm: "Are you sure?" } do %>
       <i class="fa fa-trash destroy_spot"></i>
+    <%= link_to "Edit", edit_spot_path, class:"btn btn-pink" %>
     <% end %>
   </div>
 
-  <div class="container-spots-show-form">
-    <h1>Book this spot</h1>
-      <%= render 'bookings/new', spot: @spot, booking: @booking %>
+
+  <div class="container-spots-show">
+
+    <div class="container-spots-show-image">
+      <% if @spot.photo.attached? %>
+        <%= cl_image_tag @spot.photo.key,  crop: :fill  %>
+      <% else %>
+        <%= image_tag 'flea-market-2.jpeg',  crop: :fill %>
+      <% end %>
+    </div>
+
+    <div class="container-spots-show-form">
+      <h1>Book this spot</h1>
+        <%= render 'bookings/new', spot: @spot, booking: @booking %>
+    </div>
+
   </div>
 </div>
