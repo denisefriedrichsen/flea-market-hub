@@ -2,7 +2,7 @@
   <div class="text-center mt-4">
     <h1>Your bookings</h1>
   </div>
-  <div class="d-flex justify-content-between flex-wrap">
+  <div class="d-flex justify-content-between flex-wrap mb-4">
     <% @bookings.each do |booking| %>
       <div class="card mt-4">
         <div class="card-header">
@@ -14,8 +14,8 @@
             <span class="badge badge-danger"><%= booking.status %></span>
           <% end %>
         </div>
-        <div class="card-body">
-          <h5 class="card-title"><%= booking.spot.title %></h5>
+        <div class="card-body" style="width: 250px">
+          <h5 class="card-title" style="height: 50px"><%= booking.spot.title %></h5>
           <p class="card-text">Booking Date: <%= booking.date %></p>
           <a> <%= link_to "Details", booking_path(booking)%></a>
         </div>
