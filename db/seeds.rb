@@ -33,7 +33,8 @@ users.each do |u|
     spot = Spot.new(
       title: Faker::Company.name, #replace by market names scraped form a website!
       description: Faker::Lorem.sentence(word_count: 10), # replace by descriptions scraped from a website!
-      address: "#{Faker::Address.street_address}, #{Faker::Address.city}",
+      # address: "#{Faker::Address.street_address}, #{Faker::Address.city}",
+      address: [ 'Kreuzberg', 'Friedrichshain', 'Potsdam', 'Pankow', 'Prenzlauer Berg'].sample,
       price: rand(10..30)
     )
     spot.user = u

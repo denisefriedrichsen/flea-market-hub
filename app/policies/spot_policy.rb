@@ -19,7 +19,15 @@ class SpotPolicy < ApplicationPolicy
     return true
   end
 
+  def edit?
+    record.user == user
+  end
+
   def update?
+    return true
+  end
+
+  def indexMySpots?
     return true
   end
 
