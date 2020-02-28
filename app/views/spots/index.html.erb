@@ -18,7 +18,6 @@
     <%= link_to "Create a new spot", new_spot_path, class: "btn btn-purple"%>
   </div>
 
-
 <div class="d-flex">
   <div class="f-flex flex-wrap">
     <% @spots.each do |spot| %>
@@ -26,7 +25,7 @@
         <% if spot.photo.attached? %>
         <%= cl_image_tag spot.photo.key, crop: :fill %>
         <% else %>
-        <%= image_tag 'flea-market-2.jpeg'%>
+        <%= image_tag "#{spot.title}.png"%>
         <% end %>
         <!-- <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" /> -->
         <div class="card-spot-infos">
@@ -51,4 +50,3 @@
   ></div>
 </div>
 </div>
-
