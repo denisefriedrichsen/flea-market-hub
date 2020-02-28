@@ -25,7 +25,7 @@
         <% if spot.photo.attached? %>
           <%= cl_image_tag spot.photo.key, crop: :fill %>
         <% else %>
-        <%= image_tag "images/flea-market-2.jpeg"%>
+        <%= image_tag image_url("flea-market-2.jpeg")%>
         <% end %>
         <!-- <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" /> -->
         <div class="card-spot-infos">
