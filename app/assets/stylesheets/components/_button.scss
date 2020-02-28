@@ -1,3 +1,53 @@
+.btn-confirm {
+  color: white;
+  font-weight: bolder;
+  padding: 4px 8px;
+  border-radius: 4px;
+  background: $green;
+  transition: background 0.3s ease;
+  text-decoration: none;
+}
+
+.btn-confirm:hover {
+  color: white;
+  font-weight: bolder;
+  padding: 4px 8px;
+  border-radius: 4px;
+  background: $purple;
+  transition: background 0.3s ease;
+  text-decoration: none;
+}
+
+.btn-decline {
+  color: white;
+  font-weight: bolder;
+  padding: 4px 8px;
+  border-radius: 4px;
+  background: grey;
+  transition: background 0.3s ease;
+  text-decoration: none;
+}
+
+.btn-decline:hover {
+  color: white;
+  font-weight: bolder;
+  padding: 4px 8px;
+  border-radius: 4px;
+  background: $red;
+  transition: background 0.3s ease;
+  text-decoration: none;
+}
+
+
+.btn-pink:hover {
+  background: $purple;
+  color: white;
+  text-decoration: none;
+}
+
+
+
+
 .btn-pink {
   color: white;
   font-weight: bolder;
