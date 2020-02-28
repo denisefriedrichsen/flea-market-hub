@@ -16,7 +16,7 @@
               <% if spot.photo.attached? %>
                 <%= cl_image_tag spot.photo.key, class: 'card-img-top height: auto' %>
               <% else %>
-                <%= image_tag 'flea-market-2.jpeg', class: 'card-spot-img'%>
+                <%= image_tag "#{spot.title}.png", class: 'card-spot-img'%>
               <% end %>
               <div class="ml-4">
                 <h5 class="card-title"><%= spot.title %></h5>
@@ -46,8 +46,10 @@
                         <h5 class="card-title" style="height: 50px">Booking request by <%= booking.user.name %></h5>
                         <p class="card-text">Booking Date: <%= booking.date %></p>
                         <% if booking.status == "pending" %>
-                          <%= link_to "confirm booking", confirm_path(booking), class:'btn btn-success'%> <br>
-                          <%= link_to 'decline booking', decline_path(booking), class:'btn btn-danger' %> <br>
+                          <div class="d-flex justify-content-between">
+                            <%= link_to 'confirm', confirm_path(booking), class:'btn btn-confirm'%> <br>
+                            <%= link_to 'decline', decline_path(booking), class:'btn btn-decline' %> <br>
+                          </div>
                         <% elsif booking.status == "declined" %>
                           <%= "You declined the booking." %>
                         <% elsif booking.status == "confirmed" %>

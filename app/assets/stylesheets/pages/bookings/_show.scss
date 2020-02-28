@@ -1,0 +1,34 @@
+.booking-show {
+  background-color: white;
+  height: 300px;
+  width: 500px;
+  margin-top: 40px;
+}
+
+.booking-show h1 {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.booking-show-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.booking-button {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.booking-status {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.booking-details {
+  margin-top: 20px;
+}
