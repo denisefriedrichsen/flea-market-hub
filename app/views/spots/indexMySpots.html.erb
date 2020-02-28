@@ -2,7 +2,7 @@
 
   <div class="text-center mt-4">
     <h1>Your Spots</h1>
-    <%= link_to "Create a new spot", new_spot_path, class: "btn btn-pink"%>
+    <%= link_to "Create a new spot", new_spot_path, class: "btn btn-pink mb-4"%>
   </div>
 
   <div class="container mt-2">
@@ -39,8 +39,8 @@
                         <span class="badge badge-danger"><%= booking.status %></span>
                       <% end %>
                     </div>
-                    <div class="card-body">
-                      <h5 class="card-title">Booking request by <%= booking.user.name %></h5>
+                    <div class="card-body" style="width: 250px">
+                      <h5 class="card-title" style="height: 50px">Booking request by <%= booking.user.name %></h5>
                       <p class="card-text">Booking Date: <%= booking.date %></p>
                       <% if booking.status == "pending" %>
                         <%= link_to "confirm booking", confirm_path(booking), class:'btn btn-success'%> <br>

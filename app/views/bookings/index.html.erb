@@ -14,8 +14,8 @@
             <span class="badge badge-danger"><%= booking.status %></span>
           <% end %>
         </div>
-        <div class="card-body">
-          <h5 class="card-title"><%= booking.spot.title %></h5>
+        <div class="card-body" style="width: 250px">
+          <h5 class="card-title" style="height: 50px"><%= booking.spot.title %></h5>
           <p class="card-text">Booking Date: <%= booking.date %></p>
           <a> <%= link_to "Details", booking_path(booking)%></a>
         </div>
