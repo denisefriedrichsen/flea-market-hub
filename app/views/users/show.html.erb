@@ -18,8 +18,8 @@
       <div class="password"><p><strong>Password:</strong> <%= @user.password%></p></div>
     </div>
     <div class="profile-buttons">
-      <%= link_to "Edit profile", edit_user_path, class: "btn btn-gradient" %>
-      <%= link_to "Delete profile", user_path(@user), class: "btn btn-gradient" %>
+      <%= link_to "Edit profile", edit_user_registration_path, class: "btn btn-gradient" %>
+      <%= link_to "Delete profile", user_registration_path, class: "btn btn-gradient" %>
     </div>
   </div>
 </div>

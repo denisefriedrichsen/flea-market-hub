@@ -10,9 +10,9 @@ class UsersController < ApplicationController
   end
 
   def update
-    find_user
-    @user.update(user_params)
-    redirect_to users_path(@user)
+    # find_user
+    # @user.update!(user_params)
+    # redirect_to root_path
   end
 
   def destroy
