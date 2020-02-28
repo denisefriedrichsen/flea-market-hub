@@ -1,2 +1,28 @@
-<h1>Edit your profile</h1>
-<p> Here you should be able to edit your profile</p>
+<div class="container">
+  <div class="header">
+    <h1>Edit your Profile</h1>
+  </div>
+  <div class="profile-image">
+    <% if @user.photo.attached? %>
+      <%= cl_image_tag @user.photo.key %>
+    <% else %>
+      <%= image_tag 'user.png'%>
+    <% end %>
+  </div>
+  <div class="profile-information">
+    <br>
+    <br>
+    <%= simple_form_for(@user) do |f| %>
+      <div class="form-inputs profile-details">
+        <%= f.input :name %>
+        <%= f.input :email %>
+        <%= f.input :password %>
+        <%= f.input :photo, as: :file %>
+      </div>
+      <div class="form-actions profile-button">
+        <%= f.button :submit, class: "btn btn-gradient" %>
+      </div>
+    <% end %>
+  </div>
+</div>
+

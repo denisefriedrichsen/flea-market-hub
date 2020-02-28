@@ -1,12 +1,16 @@
-<%= simple_form_for [spot, booking] do |f| %>
+<div class="container-form-booking">
+  <%= simple_form_for [spot, booking] do |f| %>
   <br>
-  <div class="form-inputs">
+  <div class="container-form-booking-new">
+  <div class="form-inputs new-booking-input">
     <%= f.input :date, as: :string, input_html: { class: "datepicker"} %>
   </div>
   <br>
 
-  <div class="form-actions">
+  <div class="form-actions new-booking-button">
     <%= f.button :submit, class: "btn btn-primary" %>
   </div>
 <% end %>
+</div>
+</div>
 
