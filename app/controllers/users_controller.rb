@@ -6,12 +6,13 @@ class UsersController < ApplicationController
   end
 
   def show
+
   end
 
   def update
     find_user
     @user.update(user_params)
-    redirect to users_path(@user)
+    redirect_to users_path(@user)
   end
 
   def destroy
