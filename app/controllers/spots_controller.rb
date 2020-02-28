@@ -9,6 +9,13 @@ class SpotsController < ApplicationController
   def index
     @spots = policy_scope(Spot).order(created_at: :desc)
     @spots = Spot.geocoded
+
+    if params[:query].present?
+      @spots = Spot.search_by(params[:query])
+    else
+      @spots = Spot.all
+    end
+
     @markers = @spots.map do |spot|
       {
         lat: spot.latitude,
@@ -50,6 +57,7 @@ class SpotsController < ApplicationController
   end
 
   def edit
+    # authorize @spot
   end
 
   def update
@@ -66,8 +74,6 @@ class SpotsController < ApplicationController
   private
 
   def spot_params
-    params.require(:spot).permit(:title, :price, :description, :body, :photo, :address)
-    # params.require(:spot).permit(:title, :price, :description)
-    # params.require(:spot).permit(:title, :body, :photo)
+    params.require(:spot).permit(:title, :price, :description, :address, :body, :photo)
   end
 end

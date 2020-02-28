@@ -1,7 +1,51 @@
-<%= render 'shared/cardlist' %>
+<div class="banner">
+  <div class="container-index">
+    <h1>All Spots</h1>
+    <br>
+    <%= link_to "Create a new spot", new_spot_path, class: "btn btn-gradient"%>
+    <br>
+  </div>
+</div>
+
+  <div class="container mt-2 d-flex">
+      <div>
+        <%= form_tag spots_path, method: :get do %>
+        <%= text_field_tag :query,
+        params[:query],
+        class: "form-control",
+        placeholder: "Find a spot"
+        %>
+      </div>
+      <div>
+        <%= submit_tag "Search", class: "btn btn-primary" %>
+        <% end %>
+      </div>
+    </div>
+
+<div class="container" id="spots">
+  <% @spots.each do |spot| %>
+    <div class="card-spot mt-4">
+      <% if spot.photo.attached? %>
+      <%= cl_image_tag spot.photo.key, crop: :fill %>
+      <% else %>
+      <%= image_tag 'flea-market-2.jpeg'%>
+      <% end %>
+      <!-- <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" /> -->
+      <div class="card-spot-infos">
+        <div>
+          <h2><%= link_to spot.title, spot_path(spot) %></h2>
+          <p><%= spot.description %></p>
+        </div>
+        <h2 class="card-spot-pricing"><%=spot.price%>€</h2>
+        <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-spot-user avatar-bordered" />
+      </div>
+    </div>
+  <% end %>
+</div>
 
 <div
-  id="map"
+  class="container mt-4"
+  id="map";
   style="width: 100%;
   height: 600px;"
   data-markers="<%= @markers.to_json %>"

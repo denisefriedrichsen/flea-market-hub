@@ -4,9 +4,10 @@
     <br>
     <p>Find all available flea market spots in your city and book it fast and easy.</p>
     <br>
+
     <div class="container mt-2">
       <div class="search-form">
-        <div class="input"><%= form_tag root_path, method: :get do %>
+        <div class="input"><%= form_tag spots_path, method: :get do %>
           <%= text_field_tag :query,
           params[:query],
           class: "form-control",
@@ -19,6 +20,7 @@
         <% end %>
       </div>
     </div>
+
     <div class="homepage-buttons mt-2">
       <%= link_to 'View all spots', spots_path, class: "btn btn-primary"%>
       <%= link_to "Create a new spot", new_spot_path, class: "btn btn-primary"%>
