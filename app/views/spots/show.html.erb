@@ -22,7 +22,7 @@
       <% if @spot.photo.attached? %>
         <%= cl_image_tag @spot.photo.key,  crop: :fill  %>
       <% else %>
-        <%= image_tag 'flea-market-2.jpeg',  crop: :fill %>
+        <%= image_tag image_url("flea-market-2.jpeg")%>
       <% end %>
     </div>
 

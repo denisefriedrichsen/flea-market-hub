@@ -21,7 +21,7 @@ class SpotsController < ApplicationController
         lat: spot.latitude,
         lng: spot.longitude,
         infoWindow: render_to_string(partial: "info_window", locals: { spot: spot }),
-        image_url: helpers.asset_url('flea-market-2.jpeg')
+        image_url: helpers.asset_url('marker.svg')
       }
     end
   end
@@ -63,7 +63,9 @@ class SpotsController < ApplicationController
 
   def update
     @spot = Spot.find(params[:id])
+    @spot.update!(spot_params)
     authorize @spot
+    redirect_to @spot
   end
 
   def destroy
