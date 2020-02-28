@@ -28,7 +28,7 @@ class SpotsController < ApplicationController
 
   def indexMySpots
     @my_spots = current_user.spots
-    authorize @my_spots.first
+    authorize @my_spots
   end
 
   def show
