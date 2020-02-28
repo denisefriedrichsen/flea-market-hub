@@ -23,7 +23,7 @@
     <% @spots.each do |spot| %>
       <div class="card-spot mt-4">
         <% if spot.photo.attached? %>
-        <%= cl_image_tag spot.photo.key, crop: :fill %>
+
         <% else %>
         <%= image_tag "#{spot.title}.png"%>
         <% end %>
