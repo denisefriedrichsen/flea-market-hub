@@ -9,10 +9,6 @@
       <p><strong>Address:</strong> <%= @spot.address %></p>
       <p><strong>Owner of the spot:</strong> <%= @spot.user.name %></p>
 
-    <%= link_to spot_path(@spot), method: :delete, data: { confirm: "Are you sure?" } do %>
-      <i class="fa fa-trash destroy_spot"></i>
-    <%= link_to "Edit", edit_spot_path, class:"btn btn-pink" %>
-    <% end %>
   </div>
 
 
@@ -22,7 +18,7 @@
       <% if @spot.photo.attached? %>
         <%= cl_image_tag @spot.photo.key,  crop: :fill  %>
       <% else %>
-        <%= image_tag image_url("flea-market-2.jpeg")%>
+        <%= image_tag 'flea-market-2.jpeg',  crop: :fill %>
       <% end %>
     </div>
 
