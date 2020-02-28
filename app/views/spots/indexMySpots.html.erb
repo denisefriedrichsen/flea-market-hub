@@ -1,53 +1,65 @@
-<div class="banner">
-  <div class="container-index">
-    <h1>Your Spots</h1>
-    <br>
-    <%= link_to "Create a new spot", new_spot_path, class: "btn btn-gradient"%>
-    <br>
-  </div>
-</div>
+<div class="container">
 
-<div class="container mt-2">
-  <div class="card-group">
+  <div class="text-center mt-4">
+    <h1>Your Spots</h1>
+    <%= link_to "Create a new spot", new_spot_path, class: "btn btn-pink"%>
+  </div>
+
+  <div class="container mt-2">
     <% @my_spots.each do |spot| %>
-      <div class="card" style="width: 18rem;">
+      <div class="card mb-3">
         <% if spot.photo.attached? %>
-        <%= cl_image_tag spot.photo.key, class: 'card-img-top' %>
+          <%= cl_image_tag spot.photo.key, class: 'card-img-top height: auto' %>
         <% else %>
-        <%= image_tag 'flea-market-2.jpeg'%>
+          <%= image_tag 'flea-market-2.jpeg', class: 'card-image-top height: auto'%>
         <% end %>
-        <div class="card-body">
-          <h5 class="card-title"><%= spot.title %></h5>
-          <p><%= spot.description %></p>
-        </div>
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item">Bookings</li>
-          <% if spot.bookings.last == nil %>
-            <li class="list-group-item"> <%= "Currently no bookings" %> </li>
-          <% else %>
-            <% spot.bookings.each do |booking| %>
-              <li class="list-group-item">
-                Booking for: <%= booking.date %> <br>
-                Status: <%= booking.status%> <br>
-                User: <%=booking.user.name%> <br>
-                <% if booking.status == "open" %>
-                  <%= link_to "confirm booking", confirm_path(booking) %> <br>
-                  <%= link_to 'decline booking', decline_path(booking) %> <br>
-                <% elsif booking.status == "declined" %>
-                  <%= "You declined the booking." %>
-                <% elsif booking.status == "confirmed" %>
-                  <%= "You confirmed the booking." %>
-                <% end %>
-              </li>
-            <% end %>
-          <% end %>
-        </ul>
-        <div class="card-body">
-          <p> Edit or delete your spot</p>
-          <%= link_to "edit", edit_spot_path(spot), class: 'card-link'%>
-          <%= link_to "delete", edit_spot_path(spot), class: 'card-link'%>
+      <div class="card-body">
+      <h5 class="card-title"><%= spot.title %></h5>
+      <p class="card-text"><%= spot.description %></p>
+      <p class="card-text">
+        <small class="text-muted">Edit your spot <%= link_to "edit", edit_spot_path(spot)%> | <%= link_to "delete", edit_spot_path(spot) %></small>
+      </p>
+          <div class="d-flex">
+            <% if spot.bookings.last == nil %>
+              <%= "Currently no bookings" %> </li>
+            <% else %>
+              <div class="d-flex justify-content-between flex-wrap">
+                <% spot.bookings.each do |booking| %>
+                  <div class="card mt-4">
+
+                    <div class="card-header">
+                      <% if booking.status == "open" %>
+                        <span class="badge badge-primary"><%= booking.status %></span>
+                      <% elsif booking.status == "confirmed" %>
+                        <span class="badge badge-success"><%= booking.status %></span>
+                      <% elsif booking.status == "declined" %>
+                        <span class="badge badge-danger"><%= booking.status %></span>
+                      <% end %>
+                    </div>
+
+                    <div class="card-body">
+                      <h5 class="card-title">Booking request by <%= booking.user.name %></h5>
+                      <p class="card-text">Booking Date: <%= booking.date %></p>
+                      <% if booking.status == "open" %>
+                        <%= link_to "confirm booking", confirm_path(booking), class:'btn btn-success'%> <br>
+                        <%= link_to 'decline booking', decline_path(booking), class:'btn btn-danger' %> <br>
+                      <% elsif booking.status == "declined" %>
+                        <%= "You declined the booking." %>
+                      <% elsif booking.status == "confirmed" %>
+                        <%= "You confirmed the booking." %>
+                      <% end %>
+                    </div>
+
+
+
+                </div>
+              <% end %>
         </div>
       </div>
+
+
+          </div>
+      <% end %>
     <% end %>
   </div>
-</div>
+
