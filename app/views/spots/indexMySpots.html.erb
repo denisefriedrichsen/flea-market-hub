@@ -28,7 +28,7 @@
                   <div class="card mt-4">
 
                     <div class="card-header">
-                      <% if booking.status == "open" %>
+                      <% if booking.status == "pending" %>
                         <span class="badge badge-primary"><%= booking.status %></span>
                       <% elsif booking.status == "confirmed" %>
                         <span class="badge badge-success"><%= booking.status %></span>
@@ -40,7 +40,7 @@
                     <div class="card-body">
                       <h5 class="card-title">Booking request by <%= booking.user.name %></h5>
                       <p class="card-text">Booking Date: <%= booking.date %></p>
-                      <% if booking.status == "open" %>
+                      <% if booking.status == "pending" %>
                         <%= link_to "confirm booking", confirm_path(booking), class:'btn btn-success'%> <br>
                         <%= link_to 'decline booking', decline_path(booking), class:'btn btn-danger' %> <br>
                       <% elsif booking.status == "declined" %>
