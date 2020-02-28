@@ -1,26 +1,22 @@
-<div class="banner">
-  <div class="container-index">
-    <h1>All Spots</h1>
-    <br>
-    <%= link_to "Create a new spot", new_spot_path, class: "btn btn-gradient"%>
-    <br>
+<div class="container mt-2">
+  <div class="search-form">
+    <div class="input"><%= form_tag spots_path, method: :get do %>
+      <%= text_field_tag :query,
+      params[:query],
+      class: "form-control",
+      placeholder: "Find a spot"
+      %>
+    </div>
+    <div>
+      <%= submit_tag "Search", class: "btn btn-gradient" %>
+    </div>
+    <% end %>
+  </div>
+  <div class="spot-index-buttons mt-2">
+    <%= link_to 'View all spots', spots_path, class: "btn btn-primary"%>
+    <%= link_to "Create a new spot", new_spot_path, class: "btn btn-primary"%>
   </div>
 </div>
-
-  <div class="container mt-2 d-flex">
-      <div>
-        <%= form_tag spots_path, method: :get do %>
-        <%= text_field_tag :query,
-        params[:query],
-        class: "form-control",
-        placeholder: "Find a spot"
-        %>
-      </div>
-      <div>
-        <%= submit_tag "Search", class: "btn btn-primary" %>
-        <% end %>
-      </div>
-    </div>
 
 <div class="container" id="spots">
   <% @spots.each do |spot| %>
