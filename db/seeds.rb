@@ -15,7 +15,7 @@ puts "Creating 5 fake users..."
 
 5.times do
   user = User.new(
-    name:    Faker::Name.name,
+    name:  Faker::Name.name,
     email: Faker::Internet.email,
     password: '123456789',
     password_confirmation: '123456789'
@@ -28,15 +28,78 @@ puts "Successfully created 10 fake users :)"
 puts "Creating 3 fake spots for every user"
 
 users = User.all
+
+fleamarkets = [{
+:title => "The Colourful",
+:description => "The historical town square is particularly beautiful at the flea market in Neukölln.",
+:address=> "Berlin, Marheinekeplatz",
+:photo=> "cloudinary_fleamarkets_fm_1"
+},{
+:title => "The Original Berliner",
+:description => "The market women once stood under the old linden trees a hundred years ago in Mitte.",
+:address=> "Berlin, Arkonaplatz",
+:photo=> "cloudinary_fleamarkets_fm_2"
+},{
+:title => "The Historical",
+:description => "Where John F. Kennedy once stood and identified himself as a Berliner in Neukölln.",
+:address=> "Berlin, John-F.-Kennedy-Platz",
+:photo=> "cloudinary_fleamarkets_fm_3"
+},{
+:title => "The Trendy",
+:description => "Fesche Lotte makes the heart of every fashion enthusiast beat faster in Friedrichshain.",
+:address=> "Berlin, Kranoldplatz",
+:photo=> "cloudinary_fleamarkets_fm_4"
+},{
+:title => "The Intellectuals",
+:description => "Numerous book and antique dealers line up with their stands along the river in Mitte.",
+:address=> "Berlin, Am Kupfergraben 2",
+:photo=> "cloudinary_fleamarkets_fm_5"
+},{
+:title => "The Jewellery",
+:description => "The special thing is the additional art promenade in Mitte.",
+:address=> "Berlin, Fehrbelliner Platz 1",
+:photo=> "cloudinary_fleamarkets_fm_6"
+},{
+:title => "The Neighbourhood",
+:description => "The flea market around the 'Boxi' is one of Berlin best visited markets in Friedrichshain.",
+:address=> "Berlin, Grünberger Str. 75",
+:photo=> "cloudinary_fleamarkets_fm_7"
+},{
+:title => "The Traditional",
+:description => "Founded in 1978, it is the oldest flea market in the city in Mitte.",
+:address=> "Berlin, Straße des 17. Juni",
+:photo=> "cloudinary_fleamarkets_fm_8"
+},{
+:title => "The Precious",
+:description => "It's a central meeting place on Sunday for antique dealers and collectors in Friedrichshain.",
+:address=> "Berlin, Erich-Steinfurth-Straße 1",
+:photo=> "cloudinary_fleamarkets_fm_9"
+},{
+:title => "The Creative",
+:description => "The idyllic location next to the Landwehr Canal draws many market-goers in Neukölln.",
+:address=> "Berlin, Maybachufer",
+:photo=> "cloudinary_fleamarkets_fm_10"
+},{
+:title => "The Night",
+:description => "There is a totally different atmosphere when the club becomes a marketplace in Friedrichshain.",
+:address=> "Berlin, Oranienstraße 190",
+:photo=> "cloudinary_fleamarkets_fm_10",
+}]
+
+
+
+# addresses = ['Gesundbrunnen', 'Hansaviertel', 'Mitte', 'Moabit', 'Tiergarten', 'Wedding', 'Friedrichshain', 'Kreuzberg', 'Charlottenburg', 'Charlottenburg-Nord', 'Grunewald', 'Halensee', 'Schmargendorf', 'Westend', 'Wilmersdorf', 'Schöneberg', 'Tempelhof']
+
 users.each do |u|
   3.times do
+    fleamarket = fleamarkets.sample
     spot = Spot.new(
-      title: Faker::Company.name, #replace by market names scraped form a website!
-      description: Faker::Lorem.sentence(word_count: 10), # replace by descriptions scraped from a website!
-      # address: "#{Faker::Address.street_address}, #{Faker::Address.city}",
-      address: [ 'Kreuzberg', 'Friedrichshain', 'Potsdam', 'Pankow', 'Prenzlauer Berg'].sample,
-      price: rand(10..30)
+      title: fleamarket[:title],
+      description: fleamarket[:description],
+      address: fleamarket[:address],
+      price: rand(5..25)
     )
+    # user.spots << spot
     spot.user = u
     spot.save!
   end
