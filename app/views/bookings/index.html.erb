@@ -6,7 +6,7 @@
     <% @bookings.each do |booking| %>
       <div class="card mt-4">
         <div class="card-header">
-          <% if booking.status == "open" %>
+          <% if booking.status == "pending" %>
             <span class="badge badge-primary"><%= booking.status %></span>
           <% elsif booking.status == "confirmed" %>
             <span class="badge badge-success"><%= booking.status %></span>
