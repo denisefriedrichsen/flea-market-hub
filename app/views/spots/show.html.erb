@@ -11,6 +11,7 @@
 
     <%= link_to spot_path(@spot), method: :delete, data: { confirm: "Are you sure?" } do %>
       <i class="fa fa-trash destroy_spot"></i>
+    <%= link_to "Edit", edit_spot_path, class:"btn btn-pink" %>
     <% end %>
   </div>
 
