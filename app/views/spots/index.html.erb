@@ -1,4 +1,4 @@
-<div class="container mt-2">
+<div class="container mt-4">
   <div class="search-form">
     <div class="input"><%= form_tag spots_path, method: :get do %>
       <%= text_field_tag :query,
@@ -8,17 +8,18 @@
       %>
     </div>
     <div>
-      <%= submit_tag "Search", class: "btn btn-gradient" %>
+      <%= submit_tag "Search", class: "btn btn-pink" %>
     </div>
     <% end %>
   </div>
-  <div class="spot-index-buttons mt-2">
-    <%= link_to 'View all spots', spots_path, class: "btn btn-primary"%>
-    <%= link_to "Create a new spot", new_spot_path, class: "btn btn-primary"%>
-  </div>
-</div>
 
-<div class="container" id="spots">
+  <div class="spot-index-buttons mt-2">
+    <%= link_to 'View all spots', spots_path, class: "btn btn-purple"%>
+    <%= link_to "Create a new spot", new_spot_path, class: "btn btn-purple"%>
+  </div>
+
+
+<div id="spots">
   <% @spots.each do |spot| %>
     <div class="card-spot mt-4">
       <% if spot.photo.attached? %>
@@ -47,3 +48,5 @@
   data-markers="<%= @markers.to_json %>"
   data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
 ></div>
+
+</div>

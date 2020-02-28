@@ -1,4 +1,4 @@
-<div class="container" id="spots">
+<div id="spots">
   <div class="spot-1">
   <% spot = @spots[3] %>
     <div class="card-spot mt-4">
@@ -32,7 +32,7 @@
           <h2><%= link_to spot.title, spot_path(spot) %></h2>
           <p><%= spot.description %></p>
         </div>
-        <h2 class="card-spot-pricing"><%=spot.price%>€</h2>
+        <h3 class="card-spot-pricing"><%=spot.price%>€</h3>
         <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-spot-user avatar-bordered" />
       </div>
     </div>
