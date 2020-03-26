@@ -1,0 +1,11 @@
+<div class="input"><%= form_tag spots_path, method: :get do %>
+      <%= text_field_tag :query,
+      params[:query],
+      class: "form-control",
+      placeholder: "Find a spot in your city"
+      %>
+</div>
+<div>
+  <%= submit_tag "Search", class: "btn btn-pink" %>
+</div>
+<% end %>

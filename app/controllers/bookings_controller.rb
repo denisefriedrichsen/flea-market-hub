@@ -42,7 +42,7 @@ class BookingsController < ApplicationController
     authorize @spot
     @booking.spot = @spot
     @booking.user = current_user
-    if @booking.save!
+    if @booking.save
       authorize @spot
       redirect_to bookings_path
     else

@@ -13,7 +13,7 @@
   font-weight: bolder;
   padding: 4px 8px;
   border-radius: 4px;
-  background: $purple;
+  background: #8B8C89;
   transition: background 0.3s ease;
   text-decoration: none;
 }
@@ -40,7 +40,7 @@
 
 
 .btn-pink:hover {
-  background: $purple;
+  background: #8B8C89;
   color: white;
   text-decoration: none;
 }
@@ -51,15 +51,17 @@
 .btn-pink {
   color: white;
   font-weight: bolder;
+  height: calc(1.5em + 0.75rem + 2px);
   padding: 8px 24px;
   border-radius: 4px;
+  position: relative;
   background: $pink;
   transition: background 0.3s ease;
   text-decoration: none;
 }
 
 .btn-pink:hover {
-  background: $purple;
+  background: #8B8C89;
   color: white;
   text-decoration: none;
 }
@@ -69,7 +71,7 @@
   font-weight: bolder;
   padding: 8px 24px;
   border-radius: 4px;
-  background: $purple;
+  background: #8B8C89;
   transition: background 0.3s ease;
   text-decoration: none;
 }

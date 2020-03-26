@@ -2,10 +2,18 @@
   text-align: center;
 }
 
-.new-booking-input {
-  margin-left: 30%
+.container-form-booking-new {
+   padding: 5px 80px 20px 80px;
 }
 
 .new-booking-button {
-  margin-left: 36%;
+  display: flex;
+  justify-content: space-around;
 }
+
+.new-booking-input input {
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+}
+
