@@ -1,52 +1,41 @@
 <div class="container mt-4">
-  <div class="search-form">
-    <div class="input"><%= form_tag spots_path, method: :get do %>
-      <%= text_field_tag :query,
-      params[:query],
-      class: "form-control",
-      placeholder: "Find a spot"
-      %>
+
+  <div class="container mt-2" id="test">
+      <div class="search-form">
+        <%= render 'shared/search-form' %>
+      </div>
     </div>
-    <div>
-      <%= submit_tag "Search", class: "btn btn-pink" %>
-    </div>
-    <% end %>
-  </div>
 
   <div class="spot-index-buttons mt-2">
     <%= link_to 'View all spots', spots_path, class: "btn btn-purple"%>
     <%= link_to "Create a new spot", new_spot_path, class: "btn btn-purple"%>
   </div>
 
-<div class="d-flex">
-  <div class="f-flex flex-wrap">
-    <% @spots.each do |spot| %>
-      <div class="card-spot mt-4">
-        <% if spot.photo.attached? %>
-          <%= cl_image_tag spot.photo.key, crop: :fill %>
-        <% else %>
-        <%=  image_tag image_path("flea-market-2.jpeg")%>
-        <% end %>
-        <!-- <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" /> -->
-        <div class="card-spot-infos">
-          <div>
-            <h2><%= link_to spot.title, spot_path(spot) %></h2>
-            <p><%= spot.description %></p>
+<div class="index-spots-map-cards">
+      <div class="cards">
+      <% @spots.each do |spot| %>
+        <div class="card-spot mt-4">
+          <% if spot.photo.attached? %>
+            <%= cl_image_tag spot.photo.key, crop: :fill %>
+          <% else %>
+            <%=  image_tag image_path("flea-market-2.jpeg")%>
+          <% end %>
+          <!-- <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" /> -->
+          <div class="card-spot-infos">
+            <div>
+              <h2><%= link_to spot.title, spot_path(spot) %></h2>
+              <p><%= spot.description %></p>
+            </div>
+            <h2 class="card-spot-pricing"><%=spot.price%>€</h2>
+            <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-spot-user avatar-bordered" />
           </div>
-          <h2 class="card-spot-pricing"><%=spot.price%>€</h2>
-          <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-spot-user avatar-bordered" />
         </div>
+      <% end %>
       </div>
-    <% end %>
-  </div>
+      <div class="map">
 
-  <div
-    class="container mt-4"
-    id="map";
-    style="width: 100%;
-    height: 600px;"
-    data-markers="<%= @markers.to_json %>"
-    data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
-  ></div>
+      <%= render 'shared/map' %>
+
+</div>
 </div>
 </div>

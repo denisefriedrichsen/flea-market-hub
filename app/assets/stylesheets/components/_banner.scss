@@ -1,8 +1,14 @@
 .banner {
+  height: 450px;
   background-size: cover;
   background-position: center;
-  padding: 150px 0;
+  padding: 100px 0;
   background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(asset_path("nowkoelln.jpeg"));
+.btn-pink {
+  border-radius: 0 4px 4px 0 !important;
+  position: relative;
+  left: -20px;
+  }
 }
 
 .banner h1 {

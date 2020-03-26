@@ -1,23 +1,13 @@
 <div class="banner">
   <div class="container">
-    <h1>Flea Market Hub</h1>
+    <h1 id="banner-headline">Flea Market Hub</h1>
     <br>
-    <p>Find all available flea market spots in your city and book it fast and easy.</p>
+    <p>Find all flea market spots in your city - book it fast and easy.</p>
     <br>
 
     <div class="container mt-2">
       <div class="search-form">
-        <div class="input"><%= form_tag spots_path, method: :get do %>
-          <%= text_field_tag :query,
-          params[:query],
-          class: "form-control",
-          placeholder: "Find a spot"
-          %>
-        </div>
-        <div>
-          <%= submit_tag "Search", class: "btn btn-pink" %>
-        </div>
-        <% end %>
+        <%= render 'shared/search-form' %>
       </div>
     </div>
 
