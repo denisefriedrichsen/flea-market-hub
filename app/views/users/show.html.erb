@@ -15,11 +15,12 @@
       <br>
       <div class="name"><p><strong>Name:</strong> <%= @user.name %></p></div>
       <div class="email"><p><strong>Email:</strong> <%= @user.email %></p></div>
-      <div class="password"><p><strong>Password:</strong> <%= @user.password%></p></div>
     </div>
+    <div class="profile-buttons-container">
     <div class="profile-buttons">
-      <%= link_to "Edit profile", edit_user_registration_path, class: "btn btn-gradient" %>
-      <%= link_to "Delete profile", user_registration_path, class: "btn btn-gradient" %>
+      <%= link_to "Edit profile", edit_user_registration_path, class: "btn btn-pink" %>
+      <%= link_to "Delete profile", user_registration_path, class: "btn btn-pink" %>
+    </div>
     </div>
   </div>
 </div>

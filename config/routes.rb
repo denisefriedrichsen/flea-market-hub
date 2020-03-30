@@ -11,5 +11,5 @@ resources :spots, only: [:index, :show, :new, :create, :destroy, :edit, :update]
   end
 resources :bookings, only: [:index, :show, :update, :destroy]
 
-resources :users, only: [:index, :show, :edit, :update, :destroy]
+resources :users, only: [:show, :edit, :update, :destroy]
 end
