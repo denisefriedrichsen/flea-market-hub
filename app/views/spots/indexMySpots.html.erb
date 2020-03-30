@@ -28,7 +28,11 @@
 
             <div class="d-flex">
               <% if spot.bookings.last == nil %>
-                <%= "Currently no bookings" %> </li>
+                <br>
+                <div class="div-no-booking" style="color: red;">
+                  <br>
+                  <%= "You have no bookings currently"%>
+                </div>
               <% else %>
                 <div class="d-flex justify-content-between flex-wrap">
                   <% spot.bookings.each do |booking| %>
