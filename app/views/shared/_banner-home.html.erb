@@ -5,16 +5,16 @@
     <p>Find all flea market spots in your city - book it fast and easy.</p>
     <br>
 
-    <div class="container mt-2">
+    <div class="container mt-2" id="container-home">
       <div class="search-form">
         <%= render 'shared/search-form' %>
+
       </div>
     </div>
-
-    <div class="homepage-buttons mt-2">
+      <div class="btns">
       <%= link_to 'View all spots', spots_path, class: "btn btn-purple"%>
-      <%= link_to "Create a new spot", new_spot_path, class: "btn btn-purple"%>
-    </div>
+      <%= link_to "Create a new spot", new_spot_path, class: "btn btn-purple", id:"new-spot"%>
+      </div>
   </div>
 </div>
 

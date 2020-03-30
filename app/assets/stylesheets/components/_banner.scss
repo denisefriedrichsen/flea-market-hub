@@ -11,9 +11,16 @@
   }
 }
 
-.homepage-buttons {
+.btns {
+  margin-top: 0;
+  display: flex;
+  justify-content: left;
   position: relative;
-  bottom: 525px;
+  left: 0;
+}
+
+#new-spot {
+  margin-left: 5px;
 }
 
 .banner h1 {

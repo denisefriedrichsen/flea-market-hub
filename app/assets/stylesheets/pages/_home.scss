@@ -15,6 +15,9 @@
   background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3));
 }
 
+#container-home {
+  min-height: 0 !important;
+}
 
 .search-form {
   display: flex;
